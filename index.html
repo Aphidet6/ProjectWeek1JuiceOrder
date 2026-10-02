@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/icons/cup.svg" alt="Logo">
+            </a>
+        </div>
+        <div class="menu-button">
+            <ul>
+                <li id="cart" class="active">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f8f1da"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2.5 3h2l2.3 12.2a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 1.9-1.5L22 8H5.2" />
+                            <circle cx="9" cy="20" r="1.3" />
+                            <circle cx="18" cy="20" r="1.3" />
+                        </svg>
+                    </button>
+
+                </li>
+                <li id="order">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f8f1da"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h12v18l-2-1.5L14 21l-2-1.5L10 21l-2-1.5L6 21V3Z" />
+                            <path d="M9 8h6M9 12h6M9 16h4" />
+                        </svg>
+                    </button>
+                </li>
+                <li id="setting">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f8f1da"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="m10 2-.5 2.1a8 8 0 0 0-1.8.8L5.8 3.8 3.8 5.8l1.1 1.9a8 8 0 0 0-.8 1.8L2 10v4l2.1.5a8 8 0 0 0 .8 1.8l-1.1 1.9 2 2 1.9-1.1a8 8 0 0 0 1.8.8L10 22h4l.5-2.1a8 8 0 0 0 1.8-.8l1.9 1.1 2-2-1.1-1.9a8 8 0 0 0 .8-1.8L22 14v-4l-2.1-.5a8 8 0 0 0-.8-1.8l1.1-1.9-2-2-1.9 1.1a8 8 0 0 0-1.8-.8L14 2h-4Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </button>
+
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <main>
+        <div class="menu">
+            <header>
+                <h1 class="order-title">รับออเดอร์</h1>
+                <h4 class="order-title">เมนูเครื่องดื่ม</h4>
+            </header>
+
+            <div class="search">
+                <img src="images/icons/search.svg" alt="Search">
+                <input type="text" placeholder="ค้นหาเมนู">
+            </div>
+
+            <div class="button-type">
+                <button class="AllType">ทั้งหมด</button>
+                <button class="Cafe">กาแฟ</button>
+                <button class="Tea">ชา</button>
+                <button class="Other">อื่น ๆ</button>
+            </div>
+
+            <div class="menu-items">
+                <div id="thai-tea" class="drink">
+                    <img id="thai-tea-image" src="">
+                    <div class="buttom">
+                        <header>
+                            <h5 id="thai-tea-name"></h5>
+                            <h5 id="thai-tea-price"></h5>
+                        </header>
+                        <div class="add">
+                            <button onclick="addToOrder('thai-tea')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="iced-americano" class="drink">
+                    <img id="americano-image" src="">
+                    <div class="buttom">
+                        <header>
+                            <h5 id="americano-name"></h5>
+                            <h5 id="americano-price"></h5>
+                        </header>
+                        <div class="add">
+                            <button onclick="addToOrder('iced-americano')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="matcha-latte" class="drink">
+                    <img id="matcha-image" src="">
+                    <div class="buttom">
+                        <header>
+                            <h5 id="matcha-name"></h5>
+                            <h5 id="matcha-price"></h5>
+                        </header>
+                        <div class="add">
+                            <button onclick="addToOrder('matcha-latte')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="iced-cocoa" class="drink">
+                    <img id="cocoa-image" src="">
+                    <div class="buttom">
+                        <header>
+                            <h5 id="cocoa-name"></h5>
+                            <h5 id="cocoa-price"></h5>
+                        </header>
+                        <div class="add">
+                            <button onclick="addToOrder('iced-cocoa')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order">
+            <header>
+                <h3 class="order-title">ออเดอร์ใหม่</h3>
+                <h5>ชื่อลูกค้า</h5>
+            </header>
+
+            <div class="customer-name">
+                <img src="images/icons/user.svg" alt="User">
+                <input type="text" placeholder="กรอกชื่อลูกค้า">
+            </div>
+
+            <div class="order-list">
+                <div class="left">
+                    <img src="images/menu/" alt="Drink Image">
+                    <header>
+                        <h5 id="order-name"></h5>
+                        <h5 id="order-price"></h5>
+                    </header>
+                </div>
+
+                <div class="right">
+                    <div id="order-quantity">
+                        <button onclick="decreaseQuantity()">-</button>
+                        <span id="quantity">1</span>
+                        <button onclick="increaseQuantity()">+</button>
+                    </div>
+
+                    <div class="price" id="order-total">
+                        <img src="images/icons/close.svg" alt="Close" onclick="removeOrder()">
+                        <h5 id="total-price">฿</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
