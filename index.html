@@ -75,7 +75,7 @@
             <div class="menu-items">
                 <div id="thai-tea" class="drink">
                     <img id="thai-tea-image" src="">
-                    <div class="buttom">
+                    <div class="bottom">
                         <header>
                             <h5 id="thai-tea-name"></h5>
                             <h5 id="thai-tea-price"></h5>
@@ -88,7 +88,7 @@
 
                 <div id="iced-americano" class="drink">
                     <img id="americano-image" src="">
-                    <div class="buttom">
+                    <div class="bottom">
                         <header>
                             <h5 id="americano-name"></h5>
                             <h5 id="americano-price"></h5>
@@ -101,7 +101,7 @@
 
                 <div id="matcha-latte" class="drink">
                     <img id="matcha-image" src="">
-                    <div class="buttom">
+                    <div class="bottom">
                         <header>
                             <h5 id="matcha-name"></h5>
                             <h5 id="matcha-price"></h5>
@@ -114,7 +114,7 @@
 
                 <div id="iced-cocoa" class="drink">
                     <img id="cocoa-image" src="">
-                    <div class="buttom">
+                    <div class="bottom">
                         <header>
                             <h5 id="cocoa-name"></h5>
                             <h5 id="cocoa-price"></h5>
@@ -136,30 +136,39 @@
             <div class="customer-name">
                 <img src="images/icons/user.svg" alt="User">
                 <input type="text" placeholder="กรอกชื่อลูกค้า">
-            </div>
 
+            </div>
+            <div class="line"></div>
             <div class="order-list">
                 <div class="left">
-                    <img src="images/menu/" alt="Drink Image">
+                    <img src="images/menu/thai-tea.png" alt="Drink Image">
                     <header>
-                        <h5 id="order-name"></h5>
-                        <h5 id="order-price"></h5>
+                        <h5 id="order-name">ชาไทย</h5>
+                        <h5 id="order-price">฿50</h5>
                     </header>
                 </div>
 
                 <div class="right">
                     <div id="order-quantity">
-                        <button onclick="decreaseQuantity()">-</button>
+                        <button onclick="decreaseQuantity()" class="QuantityBtn" id="decrease-btn">-</button>
                         <span id="quantity">1</span>
-                        <button onclick="increaseQuantity()">+</button>
+                        <button onclick="increaseQuantity()" class="QuantityBtn" id="increase-btn">+</button>
                     </div>
 
                     <div class="price" id="order-total">
                         <img src="images/icons/close.svg" alt="Close" onclick="removeOrder()">
-                        <h5 id="total-price">฿</h5>
+                        <h5 id="total-price">฿50</h5>
                     </div>
                 </div>
+            </div>
+            <div class="line"></div>
 
+            <div class="bottom-total-price">
+                <header>
+                    <h4>ยอดรวม</h4>
+                    <h2>฿50</h2>
+                </header>
+                <button id="all-total-price">สร้างออเดอร์</button>
             </div>
         </div>
     </main>
