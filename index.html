@@ -81,7 +81,7 @@
                             <h5 id="thai-tea-price"></h5>
                         </header>
                         <div class="add">
-                            <button onclick="addToOrder('thai-tea')">+</button>
+                            <button onclick="addToOrder(drinks[0])">+</button>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                             <h5 id="americano-price"></h5>
                         </header>
                         <div class="add">
-                            <button onclick="addToOrder('iced-americano')">+</button>
+                            <button onclick="addToOrder(drinks[2])">+</button>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                             <h5 id="matcha-price"></h5>
                         </header>
                         <div class="add">
-                            <button onclick="addToOrder('matcha-latte')">+</button>
+                            <button onclick="addToOrder(drinks[3])">+</button>
                         </div>
                     </div>
                 </div>
@@ -120,57 +120,74 @@
                             <h5 id="cocoa-price"></h5>
                         </header>
                         <div class="add">
-                            <button onclick="addToOrder('iced-cocoa')">+</button>
+                            <button onclick="addToOrder(drinks[1])">+</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="order">
-            <header>
-                <h3 class="order-title">ออเดอร์ใหม่</h3>
-                <h5>ชื่อลูกค้า</h5>
-            </header>
-
-            <div class="customer-name">
-                <img src="images/icons/user.svg" alt="User">
-                <input type="text" placeholder="กรอกชื่อลูกค้า">
-
-            </div>
-            <div class="line"></div>
-            <div class="order-list">
-                <div class="left">
-                    <img src="images/menu/thai-tea.png" alt="Drink Image">
-                    <header>
-                        <h5 id="order-name">ชาไทย</h5>
-                        <h5 id="order-price">฿50</h5>
-                    </header>
-                </div>
-
-                <div class="right">
-                    <div id="order-quantity">
-                        <button onclick="decreaseQuantity()" class="QuantityBtn" id="decrease-btn">-</button>
-                        <span id="quantity">1</span>
-                        <button onclick="increaseQuantity()" class="QuantityBtn" id="increase-btn">+</button>
-                    </div>
-
-                    <div class="price" id="order-total">
-                        <img src="images/icons/close.svg" alt="Close" onclick="removeOrder()">
-                        <h5 id="total-price">฿50</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="line"></div>
-
-            <div class="bottom-total-price">
+        <div class="rightContainer">
+            <div id="orderContainer">
                 <header>
-                    <h4>ยอดรวม</h4>
-                    <h2>฿50</h2>
+                    <h3 class="order-title">ออเดอร์ใหม่</h3>
+                    <h5>ชื่อลูกค้า</h5>
                 </header>
-                <button id="all-total-price">สร้างออเดอร์</button>
+
+                <div class="customer-name">
+                    <img src="images/icons/user.svg" alt="User">
+                    <input type="text" placeholder="กรอกชื่อลูกค้า">
+
+                </div>
+                <div class="line"></div>
+                <template id="orderItemTemplate">
+                    <div class="order-list">
+                        <div class="top">
+                            <div class="left">
+                                <img src="" id="drink-img" alt="Drink Image">
+                                <header>
+                                    <h5 id="order-name"></h5>
+                                    <h5 id="order-price"></h5>
+                                </header>
+                            </div>
+
+
+                            <div class="right">
+                                <div id="order-quantity">
+                                    <button onclick="decreaseQuantity(this.closest('.order-list').dataset.drinkId)" class="QuantityBtn"
+                                        id="decrease-btn">-</button>
+                                    <span id="quantity"></span>
+                                    <button onclick="increaseQuantity(this.closest('.order-list').dataset.drinkId)" class="QuantityBtn"
+                                        id="increase-btn">+</button>
+                                </div>
+
+                                <div class="price" id="order-total">
+                                    <button onclick="clearOrder(this.closest('.order-list').dataset.drinkId)">
+                                        <img src="images/icons/close.svg" alt="Close" onclick="removeOrder()">
+                                    </button>
+
+                                    <h5 id="total-price"></h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line"></div>
+                    </div>
+
+
+                </template>
+
+
+                <div class="bottom-total-price">
+                    <header>
+                        <h4>ยอดรวม</h4>
+                        <h2 id="all-total-price">฿</h2>
+                    </header>
+                    <button class="createOrder">สร้างออเดอร์</button>
+                </div>
             </div>
         </div>
+
     </main>
 
     <script src="app.js"></script>

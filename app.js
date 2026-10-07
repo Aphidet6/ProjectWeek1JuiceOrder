@@ -14,22 +14,22 @@ const drinks = [
 ];
 
 const drinksData = {
-    ThaiTea : {
+    ThaiTea: {
         "thai-tea-name": document.getElementById("thai-tea-name").innerText = drinks[0].name,
         "thai-tea-price": document.getElementById("thai-tea-price").innerText = `฿${drinks[0].price}`,
         "thai-tea-image": document.getElementById("thai-tea-image").src = drinks[0].image
     },
-    IcedCocoa : {
+    IcedCocoa: {
         "cocoa-name": document.getElementById("cocoa-name").innerText = drinks[1].name,
         "cocoa-price": document.getElementById("cocoa-price").innerText = `฿${drinks[1].price}`,
         "cocoa-image": document.getElementById("cocoa-image").src = drinks[1].image
     },
-    IcedAmericano : {
+    IcedAmericano: {
         "americano-name": document.getElementById("americano-name").innerText = drinks[2].name,
         "americano-price": document.getElementById("americano-price").innerText = `฿${drinks[2].price}`,
         "americano-image": document.getElementById("americano-image").src = drinks[2].image
     },
-    MatchaLatte : {
+    MatchaLatte: {
         "matcha-name": document.getElementById("matcha-name").innerText = drinks[3].name,
         "matcha-price": document.getElementById("matcha-price").innerText = `฿${drinks[3].price}`,
         "matcha-image": document.getElementById("matcha-image").src = drinks[3].image
@@ -47,3 +47,79 @@ menuList.addEventListener("click", (event) => {
     menuList.querySelector(".active")?.classList.remove("active");
     selectedItem.classList.add("active");
 });
+
+let orderNum = 0;
+let drinkName = []
+let totalPrice = []
+let startNum = 1
+
+const decreaseQuantity = (id) => {
+    
+    if (startNum == 1) {
+        return;
+    } else {
+        startNum -= 1
+        document.getElementById('quantity').innerHTML = startNum
+        console.log(id)
+    }
+}
+const increaseQuantity = (id) => {
+    startNum += 1
+    document.getElementById('quantity').innerHTML = startNum
+
+}
+
+const addElement = (img, name, price) => {
+
+    const orderList = document.getElementById("orderContainer");
+    const orderTemplate = document.getElementById("orderItemTemplate");
+
+    const row = orderTemplate.content.cloneNode(true);
+    const orderItem = row.querySelector(".order-list");
+    orderItem.dataset.drinkId = name;
+    row.getElementById('drink-img').src = img;
+    row.getElementById("order-name").textContent = name;
+    row.getElementById("order-price").textContent = `฿${price}`;
+    row.getElementById("total-price").textContent = `฿${price * startNum}`;
+    row.getElementById("quantity").textContent = 1;
+
+    if (drinkName[orderNum] !== name) {
+        drinkName.push(name)
+        orderList.append(row);
+        orderNum += 1
+    } else if (drinkName[orderNum] === name) {
+        return;
+    }
+}
+
+const totlePrice = (price) => {
+    const allPrice = document.getElementById("all-total-price");
+    totalPrice.push(price)
+    let sum = 0
+    totalPrice.forEach(x => {
+        sum += x;
+    });
+
+
+    allPrice.textContent = `฿${sum}`
+}
+
+const addToOrder = (drink) => {
+
+    if (!drinkName.includes(drink.name)) {
+        addElement(drink.image, drink.name, drink.price)
+        totlePrice(drink.price)
+        const orderList = document.querySelector('order-list')
+    } else if (drinkName[orderNum - 1] === drink.nameame) {
+        return;
+    }
+
+}
+
+const clearOrder = () => {
+    const orderList = document.getElementById("orderContainer");
+    const orderTemplate = document.getElementById("orderItemTemplate");
+
+    const row = orderTemplate.content.cloneNode(true);
+    orderList.remove(row);
+}
